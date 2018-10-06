@@ -1,5 +1,5 @@
 import Immutable from 'immutable';
 
-export const initialState = new Immutable.Map({
+export const initialState = new Immutable.fromJS({
     history: new Immutable.Stack()
 });
