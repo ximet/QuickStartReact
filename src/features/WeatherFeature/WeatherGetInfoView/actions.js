@@ -5,6 +5,8 @@ import { COUNTRY_LABEL_1_CHANGE,
 } from './types.js';
 import { getLabel1, getLabel2, getLabel3, getLabel4 } from './selectors';
 import { getAirTemperature } from '../../../services/WeatherService.js';
+import { handleSetListWeather } from '../WeatherOutputView/actions';
+import { push } from 'connected-react-router';
 
 const handleCountryLabel1Change = label => ({
     type: COUNTRY_LABEL_1_CHANGE,
@@ -35,7 +37,12 @@ const submit = () => (dispatch, getState) => {
     const params = `${label3},${label4}`
 
     getAirTemperature(lat, lng, params)
-        .then(data => console.log(data));
+        .then(data => {
+            const path = '/weatherOutput';
+            dispatch(handleSetListWeather(data.hours));
+            dispatch(push(path))
+            console.log(data)
+        });
 };
 
 // view actions

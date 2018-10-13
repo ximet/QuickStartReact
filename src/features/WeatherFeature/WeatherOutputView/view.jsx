@@ -5,5 +5,6 @@ import actions from './actions.js';
 export const WeatherOutputView = connect(selectors, actions)((props) => {
   return <div>
           <div>{ props.TITLE }</div>
+          <div>{props.weatherList}</div>
         </div>
 });
