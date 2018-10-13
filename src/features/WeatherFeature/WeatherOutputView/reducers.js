@@ -1,7 +1,7 @@
 import {
     SET_LIST_WEATHER,
 } from './types.js';
-import { initialState } from './initial.js';
+import { initialState } from './initials.js';
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {

@@ -1,11 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import selectors from './selector.js';
+import selectors from './selectors.js';
 import actions from './actions.js';
-const WeatherOutputView = connect(selectors, actions)((props) => {
+export const WeatherOutputView = connect(selectors, actions)((props) => {
   return <div>
           <div>{ props.TITLE }</div>
         </div>
-})
-
-export default WeatherOutputView
+});
