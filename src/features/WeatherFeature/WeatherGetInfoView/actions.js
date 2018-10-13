@@ -3,8 +3,8 @@ import { COUNTRY_LABEL_1_CHANGE,
     COUNTRY_LABEL_3_CHANGE,
     COUNTRY_LABEL_4_CHANGE
 } from './types.js';
-import { getLabel1 } from './selectors';
-import { getWeatherForListCountry } from '../../../services/WeatherService.js';
+import { getLabel1, getLabel2, getLabel3, getLabel4 } from './selectors';
+import { getAirTemperature } from '../../../services/WeatherService.js';
 
 const handleCountryLabel1Change = label => ({
     type: COUNTRY_LABEL_1_CHANGE,
@@ -28,9 +28,13 @@ const handleCountryLabel4Change = label => ({
 
 const submit = () => (dispatch, getState) => {
     const state = getState();
-    const label = getLabel1(state);
-    const listCountry = [label]
-    getWeatherForListCountry(listCountry)
+    const lat = getLabel1(state);
+    const lng = getLabel2(state);
+    const label3 = getLabel3(state);
+    const label4 = getLabel4(state);
+    const params = `${label3},${label4}`
+
+    getAirTemperature(lat, lng, params)
         .then(data => console.log(data));
 };
 
