@@ -76,6 +76,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "node-sass": "^4.9.4",
     "redux-devtools": "^3.4.1"
   },
   "jest": {
