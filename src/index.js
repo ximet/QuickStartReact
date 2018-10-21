@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux'
 import { createBrowserHistory } from 'history'
 import ReactDOM from 'react-dom';
-import './index.css';
+import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import configureStore from './store/configureStore.js';
